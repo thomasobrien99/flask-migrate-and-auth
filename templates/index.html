@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>See all Users</h1>
+	{% for user in users %}
+  	<li> {{user.username}} is {{user.age}} years old and their password is {{user.password}}</li>
+	{% endfor %}
+	<h4><a href="{{url_for('new_user')}}">Add a user!</h4>
+{% endblock %}

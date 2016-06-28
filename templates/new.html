@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>Create a User</h1>
+<form action="{{url_for('index_user')}}" method="POST">
+  {{form.csrf_token}}
+  {{form.username.name}} : {{form.username(required="required")}}
+    {% for error in form.username.errors %}
+      <li>{{error}}</li>
+    {% endfor %}
+  {{form.password.name}} : {{form.password(required="required")}}
+    {% for error in form.password.errors %}
+      <li>{{error}}</li>
+    {% endfor %}
+	<input type="submit" value="Add User!">
+</form>
+{% endblock %}
